@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #19a7ce;
+  color: #333;
+  padding: 15px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  background-color: #f6f1f1;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.sidebar ul li a:hover {
+  background-color: #e9e9e9;
+}
+.sidebar ul li a:focus {
+  background-color: rgb(0, 0, 255);
+  color: white;
+  font-weight: bolder;
+}
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  width: 80%;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#productList div {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.titlesp {
+  text-align: center;
+}
+.title {
+  text-align: center;
+}
+.nutxoa {
+  text-decoration: none;
+  background-color: rgb(200, 21, 21);
+  color: white;
+  margin: 10px;
+  width: 80px;
+}
+.nutxoa:hover {
+  background-color: red;
+}
+.nut {
+  margin: 10px;
+  width: 80px;
+}
+.nutt {
+  text-decoration: none;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  height: 35px;
+  margin-right: 10px;
+  width: 120px;
+}
+.nutt:hover {
+  background-color: #0056b3;
+}
+.list {
+  width: 80%;
+}
+.addVariantRow {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.hihi {
+  margin-top: 10px;
+}
+.myImage {
+  width: 80%;
+}

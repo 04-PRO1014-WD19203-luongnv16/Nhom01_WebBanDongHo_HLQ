@@ -1,0 +1,73 @@
+case "billcomfim":
+    if (isset($_POST['btn_dathang']) && $_POST['btn_dathang']) {
+        if (isset($_POST['id_tai_khoan']) && isset($_POST['ten_tai_khoan']) && isset($_POST['sdt']) && isset($_POST['diachi']) && isset($_POST['email'])) {
+            // Lấy thông tin khách hàng
+            $id_tai_khoan = $_POST['id_tai_khoan'];
+            $ten_tai_khoan = $_POST['ten_tai_khoan'];
+            $sdt = $_POST['sdt'];
+            $diachi = $_POST['diachi'];
+            $email = $_POST['email'];
+            
+            // Lấy thông tin giỏ hàng
+            $cart_imgs = $_POST['cart_img'];
+            $cart_names = $_POST['cart_name'];
+            $cart_gias = $_POST['cart_gia'];
+            $cart_quantities = $_POST['cart_quantity'];
+            $cart_id_bien_thes = $_POST['cart_id_bien_the'];
+            $cart_thanh_tiens = $_POST['cart_thanh_tien'];
+            
+            // Lấy tổng giá trị đơn hàng
+            $tongGiaInput = $_POST['tongGiaInput'];
+            $bill_status = 1;
+            $payment_status = 0;
+            $ngaydathang = date('h:i:sa d/m/y');
+            
+            // Đảm bảo rằng kết nối CSDL đã được include
+            include "../model/bill_item.php";
+            
+            // Tạo một ID đơn hàng duy nhất
+            $orderId = generateUniqueOrderId();
+            
+            // Chèn dữ liệu vào bảng bill và lấy ID của hóa đơn
+            $id_bill = insertCartBill($id_tai_khoan, $ten_tai_khoan, $diachi, $sdt, $email, $payment_status, $ngaydathang, $tongGiaInput, $bill_status, $orderId);
+            
+            // Sử dụng $id_bill để chèn các thông tin vào bảng bill_item
+            foreach ($cart_imgs as $i => $cart_img) {
+                $cart_name = $cart_names[$i];
+                $cart_gia = $cart_gias[$i];
+                $cart_quantity = $cart_quantities[$i];
+                $cart_id_bien_the = $cart_id_bien_thes[$i];
+                $cart_thanh_tien = $cart_thanh_tiens[$i];
+                
+                insertCartInBillItem($id_bill, $id_tai_khoan, $cart_img, $cart_name, $cart_gia, $cart_quantity, $cart_id_bien_the, $cart_thanh_tien);
+            }
+            
+            if (isset($_SESSION['id_tai_khoan'])) {
+                $id_tai_khoan = intval($_SESSION['id_tai_khoan']);
+                deleteCart($id_tai_khoan);
+            } else {
+                echo "<script>alert('Thông tin tài khoản không hợp lệ.');</script>";
+            }
+            
+            // Hiển thị thông báo thành công và cập nhật giỏ hàng
+            if (isset($_SESSION['id_tai_khoan'])) {
+                $id_tai_khoan = intval($_SESSION['id_tai_khoan']);
+                $checkCart = checkCart($id_tai_khoan);
+                include "../view/giohang.php";
+            } else {
+                echo "<script>alert('Hóa đơn đã được tạo thất bại!');</script>";
+            }
+        } else {
+            echo "<script>alert('Vui lòng đăng nhập để mua hàng.');</script>";
+            include_once "../view/dangnhap.php";
+        }
+    }
+
+    // Lấy thông tin hóa đơn và giỏ hàng
+    $idbill = idbill();
+    $listbill = loadonebill($idbill);
+    $billct = loadone_cart($idbill);
+    include "../view/bill/billcomfim.php";
+break;
+
+

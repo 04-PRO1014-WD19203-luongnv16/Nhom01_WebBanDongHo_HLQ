@@ -1,0 +1,22 @@
+http://localhost/Nhom01_WebBanDongHo_HLQ%20(2)/controler/trangchu.php?act=notedatamomo&partnerCode=MOMOBKUN20180529&orderId=1722534215&requestId=1722534215&amount=136650&orderInfo=Thanh+to%C3%A1n+qua+ATM&orderType=momo_wallet&transId=4093326109&resultCode=0&message=Successful.&payType=napas&responseTime=1722534291084&extraData=&signature=44688878d9bbf24ce2e97e4670f336493f559aa163fdbace5e20f8d410745edc&paymentOption=momo
+
+
+
+
+Bắt đầu thanh toán ATM
+https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzIyNTkzNDIy&s=5b94fe9504875a2d24c9fdf432b2eecc3aa6b73839f3ca35fb2aae49b75ac756
+
+
+Gửi OPT
+https://test-payment.momo.vn/service-napas-cashin-app-bank/napas/build_data_form?orderId=4093640550
+
+
+http://localhost/Nhom01_WebBanDongHo_HLQ%20(2)/controler/trangchu.php?act=notedatamomo&partnerCode=MOMOBKUN20180529&orderId=1722593422&requestId=1722593422&amount=56000&orderInfo=Thanh+to%C3%A1n+qua+ATM&orderType=momo_wallet&transId=4093640550&resultCode=0&message=Successful.&payType=napas&responseTime=1722593659112&extraData=&signature=ad79d93263c7e3207287567ad833443c1d1139ad1385e93e0103f304f763c39f&paymentOption=momo
+
+
+
+
+9704 0000 0000 0018
+03/07
+NGUYEN VAN A
+0923441111
